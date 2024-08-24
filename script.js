@@ -7,10 +7,10 @@ function handleFormSubmit(e) {
   const isWatched = document.getElementById("isWatched").checked;
 
   const film = {
-    title: title,
-    genre: genre,
-    releaseYear: releaseYear,
-    isWatched: isWatched,
+    title,
+    genre,
+    releaseYear,
+    isWatched,
   };
 
   addFilm(film);
