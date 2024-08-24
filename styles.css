@@ -47,7 +47,14 @@ form input[type="checkbox"] {
   margin: 0;
 }
 
+.filter-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .filter-form {
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,11 +66,20 @@ form input[type="checkbox"] {
 }
 
 #select {
-  width: 100px;
+  width: 200px;
   padding: 7px;
+  text-align: left;
   font-size: 16px;
   line-height: 16px;
   font-weight: 500;
+}
+
+.remove-all {
+   transition: .3s ease-in;
+}
+
+.remove-all:hover {
+  
 }
 
 table {
@@ -99,6 +115,12 @@ td {
   cursor: pointer; 
   font-weight: 700; 
   width: 150px;
+  transition: .3s ease-in;
+}
+
+.btn-remove:hover {
+  transition: .3s ease-in-out;
+  background-color: rgb(196, 31, 31);
 }
 
 #submit {
