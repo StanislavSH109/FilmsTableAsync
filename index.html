@@ -4,15 +4,17 @@
 </head>
 <body>
     <form id="film-form">
-        <label for="title">Название:</label><br>
-        <input type="text" id="title" name="title"><br>
-        <label for="genre">Жанр:</label><br>
-        <input type="text" id="genre" name="genre"><br>
-        <label for="releaseYear">Год:</label><br>
-        <input type="text" id="releaseYear" name="releaseYear"><br>
-        <input type="checkbox" id="isWatched" name="isWatched">
-        <label for="isWatched">Успели посмотреть?</label><br>
-        <input type="submit" value="Submit">
+        <label for="title">Название:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="genre">Жанр:</label>
+        <input type="text" id="genre" name="genre" required>
+        <label for="releaseYear">Год:</label>
+        <input type="text" id="releaseYear" name="releaseYear" required>
+        <span class="checkbox">
+            <input type="checkbox" id="isWatched" name="isWatched" required>
+            <label for="isWatched">Успели посмотреть?</label>
+        </span>
+        <button type="submit" value="Submit" name="submit" id="submit" required>Отправить</button>
     </form>
     <table id="film-table">
         <thead>

@@ -55,7 +55,7 @@ async function renderTable() {
       <td>${film.genre}</td>
       <td>${film.releaseYear}</td>
       <td>${film.isWatched ? "Да" : "Нет"}</td>
-      <td><button class="btn-remove" style="padding: 16px; border: none; border-radius: 8px; background-color: red; color: #fff; cursor: pointer; font-weight: 700; width: 150px">Удалить</button></td>
+      <td><button class="btn-remove">Удалить</button></td>
     `;
     filmTableBody.appendChild(row);
   });

@@ -27,20 +27,24 @@ form input[type="text"] {
 }
 
 form input[type="checkbox"] {
+  display: flex;
+}
+
+.checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-form input[type="submit"] {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 5px;
+.checkbox input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
 }
 
-form input[type="submit"]:hover {
-  background-color: #444;
-  cursor: pointer;
+.checkbox label {
+  margin: 0;
 }
 
 table {
@@ -53,6 +57,7 @@ table {
 
 th,
 td {
+  text-align: center;
   padding: 15px;
   border-bottom: 1px solid #ddd;
 }
@@ -64,4 +69,34 @@ th {
 
 td {
   vertical-align: top;
+}
+
+.btn-remove {
+  padding: 16px;
+  border: none;
+  border-radius:8px; 
+  background-color: red;
+  color: #fff; 
+  cursor: pointer; 
+  font-weight: 700; 
+  width: 150px;
+}
+
+#submit {
+  padding: 14px;
+  width: 150px;
+  background-color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor:pointer;
+   margin: 0;
+   color: #fff;
+   border-radius: 8px;
+   transition: .3s ease-out;
+}
+
+#submit:hover {
+  background-color: #444;
+  transition: .3s ease-in-out;
 }
