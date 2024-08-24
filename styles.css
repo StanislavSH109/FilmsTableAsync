@@ -47,6 +47,25 @@ form input[type="checkbox"] {
   margin: 0;
 }
 
+.filter-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.filter-form input[type="text"] {
+  margin: 0;
+}
+
+#select {
+  width: 100px;
+  padding: 7px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
 table {
   width: 100%;
   background-color: #fff;
@@ -68,7 +87,7 @@ th {
 }
 
 td {
-  vertical-align: top;
+  vertical-align: center;
 }
 
 .btn-remove {
