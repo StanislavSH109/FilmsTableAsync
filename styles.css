@@ -75,11 +75,21 @@ form input[type="checkbox"] {
 }
 
 .remove-all {
-   transition: .3s ease-in;
+  padding: 16px;
+  border: none;
+  border-radius:8px; 
+  background-color: red;
+  color: #fff; 
+  cursor: pointer; 
+  font-weight: 700; 
+  width: 150px;
+  transition: .3s ease-in;
+  
 }
 
 .remove-all:hover {
-  
+  transition: .3s ease-in;
+  background-color: rgb(196, 31, 31);
 }
 
 table {

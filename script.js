@@ -1,3 +1,8 @@
+const removeAllButton = document.querySelector('.remove-all');
+removeAllButton.addEventListener('click', function (e) {
+  deleteAllFilms();
+});
+
 function handleFormSubmit(e) {
   e.preventDefault();
 
@@ -12,16 +17,11 @@ function handleFormSubmit(e) {
     releaseYear,
     isWatched,
   };
-
+  
   addFilm(film);
 }
 
 async function addFilm(film) {
-  // const films = JSON.parse(localStorage.getItem("films")) || [];
-  // films.push(film);
-  // localStorage.setItem("films", JSON.stringify(films));
-
-  // console.log(film);
   await fetch("https://sb-film.skillbox.cc/films", {
     method: "POST",
     headers: {
@@ -29,25 +29,23 @@ async function addFilm(film) {
       email: "ovikdevil@gmail.com",
     },
     body: JSON.stringify(film),
+    
   });
   renderTable();
 }
 
 async function renderTable() {
-  // const films = JSON.parse(localStorage.getItem("films")) || [];
   const filmsResponse = await fetch("https://sb-film.skillbox.cc/films", {
     headers: {
       email: "ovikdevil@gmail.com",
     },
   });
-  const films = await filmsResponse.json();
-
+  
+  const films =  await filmsResponse.json();
   const filmTableBody = document.getElementById("film-tbody");
 
-  // Clear table body first
   filmTableBody.innerHTML = "";
 
-  // Then add new rows
   films.forEach((film, index) => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -55,15 +53,43 @@ async function renderTable() {
       <td>${film.genre}</td>
       <td>${film.releaseYear}</td>
       <td>${film.isWatched ? "Да" : "Нет"}</td>
-      <td><button class="btn-remove">Удалить</button></td>
+      <td><button class="btn-remove" id="${film.id}">Удалить</button></td>
+
     `;
     filmTableBody.appendChild(row);
+
   });
+  
+  const removeBtn = document.querySelectorAll('.btn-remove');
+  removeBtn.forEach((btn) =>{
+    btn.addEventListener('click',  (e) => {
+      const btnId = e.target.getAttribute('id');
+     deleteFilm(btnId);
+    });
+  });
+ 
 }
 
-document
-  .getElementById("film-form")
-  .addEventListener("submit", handleFormSubmit);
+async function deleteFilm(btnId) {
+  await fetch(`https://sb-film.skillbox.cc/films/${btnId}`, {
+    method: "DELETE",
+    headers: {
+      email: "ovikdevil@gmail.com"
+    }
+  })
+  renderTable();
+}
 
-// Display films on load
+async function deleteAllFilms() {
+  await fetch("https://sb-film.skillbox.cc/films/", {
+  method: "DELETE",
+  headers: {
+    email: "ovikdevil@gmail.com"
+  }
+})
+renderTable()
+}
+
+document.getElementById("film-form").addEventListener("submit", handleFormSubmit);
+
 renderTable();
