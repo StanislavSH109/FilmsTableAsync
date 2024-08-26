@@ -30,7 +30,7 @@ form input[type="checkbox"] {
   display: flex;
 }
 
-select option {
+select  {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -73,14 +73,14 @@ select option {
   margin: 0;
 }
 
-#select {
+/* #select {
   width: 200px;
   padding: 7px;
   text-align: left;
   font-size: 16px;
   line-height: 16px;
   font-weight: 500;
-}
+} */
 
 .remove-all {
   padding: 16px;
