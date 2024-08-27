@@ -22,11 +22,10 @@
             <input type="text" id="name-film" name="name-film" placeholder="Название фильма">
             <input type="text" id="genre-film" name="genre-film" placeholder="Жанр фильма">
             <input type="text" id="year-release" name="year-release" placeholder="Год выпуска">
-            <select name="select" id="select">
-                <option value="all">Все</option>
-                <option value="all">По году</option>
-                <option value="all">По названию</option>
-                <option value="all">По жанру</option>
+            <select name="select" id="sort-select" class="sort-select">
+                <option value="all" class="all">Все</option>
+                <option value="watch" class="watch">По просмотренным</option>
+                <option value="unwatch" class="unwatch">По непросмотренным</option>
             </select>
         </form>
         <button class="remove-all" id="remove-all" type="button">Удалить всё</button>

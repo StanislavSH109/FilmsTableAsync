@@ -1,3 +1,14 @@
+// const sortSelect = document.querySelector('.sort-select');
+// console.log(sortSelect.options[sortSelect.selectedIndex]);
+
+// sortSelect.addEventListener('change',  (e) => {
+//   const selectOptions = sortSelect.options[sortSelect.selectedIndex];
+//   console.log(selectOptions);
+//   if (selectOptions.classList.contains('watch')) {
+//     console.log('Выбрано "Просмотренные"! ');
+//   }
+// });
+
 const removeAllButton = document.querySelector('.remove-all');
 removeAllButton.addEventListener('click', function (e) {
   deleteAllFilms();
@@ -93,3 +104,4 @@ renderTable()
 document.getElementById("film-form").addEventListener("submit", handleFormSubmit);
 
 renderTable();
+
