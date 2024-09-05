@@ -1,13 +1,24 @@
-// const sortSelect = document.querySelector('.sort-select');
-// console.log(sortSelect.options[sortSelect.selectedIndex]);
+// myArray = [{
+//   title: "Matrix",
+//   release: "1999",
+//   isWatched: true
+// },
+// {
+//   title: "Begin",
+//   release: "2014",
+//   isWatched: false
+// },
+// {
+//   title: "Intouchable",
+//   release: "2011",
+//   isWatched: false
+// }]
 
-// sortSelect.addEventListener('change',  (e) => {
-//   const selectOptions = sortSelect.options[sortSelect.selectedIndex];
-//   console.log(selectOptions);
-//   if (selectOptions.classList.contains('watch')) {
-//     console.log('Выбрано "Просмотренные"! ');
-//   }
-// });
+// console.log(myArray
+//             .sort((a, b) => b.isWatched - a.isWatched)
+// );
+
+
 
 const removeAllButton = document.querySelector('.remove-all');
 removeAllButton.addEventListener('click', function (e) {
@@ -99,6 +110,19 @@ async function deleteAllFilms() {
   }
 })
 renderTable()
+}
+
+async function sortWatchedFilms() {
+  const sortSelect = document.querySelector('.sort-select');
+
+  sortSelect.addEventListener('change',  (e) => {
+  const selectOptions = sortSelect.options[sortSelect.selectedIndex];
+
+  if (selectOptions.classList.contains('watch')) {
+    
+  }
+  
+  });
 }
 
 document.getElementById("film-form").addEventListener("submit", handleFormSubmit);
