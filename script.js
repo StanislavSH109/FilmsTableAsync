@@ -90,8 +90,28 @@ async function deleteAllFilms() {
 renderTable()
 }
 
+allFlims = [];
+document.getElementById('name-film').addEventListener('input', filterFilms);
+
+async function fetchFilms() {
+  const filmsResponse = await fetch("https://sb-film.skillbox.cc/films", {
+    headers: {
+      email: "ovikdevil@gmail.com"
+    }
+  });
+
+  allFlims = await filmsResponse.json();
+
+}
+
+function filterFilms(event) {
+  const searchText = event.target.value.toLowerCase();
+  const filteredFilms = allFlims.filter(film => film.title.toLowerCase().includes(searchText));
+  renderTable(filteredFilms);
+}
 
 document.getElementById("film-form").addEventListener("submit", handleFormSubmit);
 
 renderTable();
+filterFilms();
 
