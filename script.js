@@ -1,3 +1,10 @@
+document.getElementById('name-film').addEventListener('input', filterToName);
+document.getElementById('genre-film').addEventListener('input', filterToGenre);
+document.getElementById('year-release').addEventListener('input', filterToYear);
+document.getElementById("sort-select").addEventListener('change', filterToWatch);
+document.getElementById("sort-select").addEventListener('change', filterToWatch);
+
+
 const removeAllButton = document.querySelector('.remove-all');
 removeAllButton.addEventListener('click', function (e) {
   deleteAllFilms();
@@ -69,7 +76,7 @@ async function deleteFilm(btnId) {
       email: "ovikdevil@gmail.com"
     }
   })
-  renderTable();
+  fetchFilms();
 }
 
 async function deleteAllFilms() {
@@ -79,13 +86,12 @@ async function deleteAllFilms() {
     email: "ovikdevil@gmail.com"
   }
 })
-renderTable()
+fetchFilms();
 }
 
 allFilms = [];
-document.getElementById('name-film').addEventListener('input', filterToName);
-document.getElementById('genre-film').addEventListener('input', filterToGenre);
-document.getElementById('year-release').addEventListener('input', filterToYear);
+
+
 
 async function fetchFilms() {
   const filmsResponse = await fetch("https://sb-film.skillbox.cc/films", {
@@ -114,6 +120,20 @@ function filterToYear(event) {
   const searchText = event.target.value.toLowerCase();
   const filteredFilms = allFilms.filter(film => film.releaseYear.toLowerCase().includes(searchText))
   renderTable(filteredFilms);
+}
+
+function filterToWatch(event) {
+  const searchValue = event.target.value;
+
+  if (searchValue === 'watch') {
+    const filteredWatch = allFilms.filter(film => film.isWatched === true);
+    renderTable(filteredWatch);
+  } else if (searchValue === 'unwatch') {
+    const filteredUnwatch = allFilms.filter(film => film.isWatched === false);
+    renderTable(filteredUnwatch);
+  } else {
+    renderTable(allFilms);
+  }
 }
 
 
