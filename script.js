@@ -31,22 +31,14 @@ async function addFilm(film) {
     body: JSON.stringify(film),
     
   });
-  renderTable();
+  fetchFilms();
 }
 
-async function renderTable() {
-  const filmsResponse = await fetch("https://sb-film.skillbox.cc/films", {
-    headers: {
-      email: "ovikdevil@gmail.com",
-    },
-  });
-  
-  const films =  await filmsResponse.json();
+async function renderTable(films) {
   const filmTableBody = document.getElementById("film-tbody");
-
   filmTableBody.innerHTML = "";
 
-  films.forEach((film, index) => {
+  films.forEach((film) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${film.title}</td>
@@ -90,8 +82,10 @@ async function deleteAllFilms() {
 renderTable()
 }
 
-allFlims = [];
-document.getElementById('name-film').addEventListener('input', filterFilms);
+allFilms = [];
+document.getElementById('name-film').addEventListener('input', filterToName);
+document.getElementById('genre-film').addEventListener('input', filterToGenre);
+document.getElementById('year-release').addEventListener('input', filterToYear);
 
 async function fetchFilms() {
   const filmsResponse = await fetch("https://sb-film.skillbox.cc/films", {
@@ -100,18 +94,31 @@ async function fetchFilms() {
     }
   });
 
-  allFlims = await filmsResponse.json();
-
+  allFilms = await filmsResponse.json();
+  renderTable(allFilms);
 }
 
-function filterFilms(event) {
+function filterToName(event) {
   const searchText = event.target.value.toLowerCase();
-  const filteredFilms = allFlims.filter(film => film.title.toLowerCase().includes(searchText));
+  const filteredFilms = allFilms.filter(film => film.title.toLowerCase().includes(searchText));
   renderTable(filteredFilms);
 }
 
+function filterToGenre(event) {
+  const searchText = event.target.value.toLowerCase();
+  const filteredFilms = allFilms.filter(film => film.genre.toLowerCase().includes(searchText))
+  renderTable(filteredFilms);
+}
+
+function filterToYear(event) {
+  const searchText = event.target.value.toLowerCase();
+  const filteredFilms = allFilms.filter(film => film.releaseYear.toLowerCase().includes(searchText))
+  renderTable(filteredFilms);
+}
+
+
 document.getElementById("film-form").addEventListener("submit", handleFormSubmit);
 
-renderTable();
-filterFilms();
+
+fetchFilms();
 
