@@ -6,6 +6,3 @@
   <li>Deleting all movies. Add a "Delete All" button to allow you to delete all movies from the table.</li>
   <li>Film validation. Implement form validation to ensure that the title, genre, and release year fields are not empty before submitting. If validation fails, an appropriate error message must be shown.</li>
 </ul>
-<div style="background-color:grey; padding: 10px; width: 300px; height: 300px border: 1px solid white;">
-  <p style="color: red">Author: Stanislav Shastov</p>
-</div>
